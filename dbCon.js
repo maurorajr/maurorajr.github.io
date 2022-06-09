@@ -11,6 +11,7 @@
         apiKey: "AIzaSyCLFDntjE0WpWpLDlEaRlG27axJHCj8Z6o",
         authDomain: "csgoempire-83732.firebaseapp.com",
         projectId: "csgoempire-83732",
+        databaseURL: "https://csgoempire-83732-default-rtdb.firebaseio.com",
         storageBucket: "csgoempire-83732.appspot.com",
         messagingSenderId: "926745917748",
         appId: "1:926745917748:web:c0cdb625a04936f6250d61",
