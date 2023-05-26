@@ -1,3 +1,3 @@
 var script = document.createElement('script');
-script.src = 'https://raw.githubusercontent.com/seu-usuario/seu-repositorio/seu-branch/seu-arquivo.js';
+script.src = 'maurorajr.github.io/criarElementoHTML.js';
 document.head.appendChild(script);
