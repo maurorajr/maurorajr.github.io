@@ -1,4 +1,3 @@
-
 var bet = 1000, amount,
     pOne = 0, pTwo = 0, mult = 19, trace = 0, safe = 1.5, betVlr = 1, qtdPag = 150, time = 1500;
 let page = 0;
