@@ -1,5 +1,5 @@
 var bet = 1000, amount,
-    pOne = 0, pTwo = 0, mult = 19, trace = 0, safe = 1.5, betVlr = 1, qtdPag = 150, time = 1500;
+    pOne = 0, pTwo = 0, mult = 54999, trace = 0, safe = 1.5, betVlr = 1, qtdPag = 250, time = 1250;
 let page = 0;
 let aMedia = [['Distância', 'Núm. Ocorrências']];
 const hist = document.getElementsByClassName('fairness-modal-link')[1];
