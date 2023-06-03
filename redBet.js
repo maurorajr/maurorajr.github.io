@@ -12,12 +12,12 @@ function formatBackground() {
         // Verifica se o número é maior que 99
         if (amount >= mult) {
             betAmounts[i].style.backgroundColor = 'red'; // Define o fundo como vermelho
-            nextPage = False            
+            nextPage = false            
         } else{
-            nextPage = True
+            nextPage = true
         }
     }
-    if (nextPage == True){
+    if (nextPage == true){
         clickNextPage();
     }    
 }
