@@ -1,8 +1,9 @@
-var mult = 49000, amount, betAmounts, reds;
+var mult = 49000, amount, betAmounts, reds, history;
 // Função para formatar o fundo
 function formatBackground() {
     // Seleciona todos os elementos com a classe "bet-amount"
     betAmounts = document.getElementsByClassName('bet-amount');
+    history = [['Página', 'Multiplicador']];
     
     // Itera sobre os elementos
     reds = 0;
@@ -18,6 +19,8 @@ function formatBackground() {
     }
     if (reds == 0) {
         clickNextPage();
+    } else {
+        console.log('Qtd' + reds.toString() + ' | ');
     }
 }
 
