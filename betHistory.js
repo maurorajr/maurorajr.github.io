@@ -1,6 +1,9 @@
 const betArray = [['Bet','Pag','Multiplicador', 'Retorno Calculado']];
 let multi = 999, settime = 1500, filtro = 9999, betPlace = 0.1;
 
+multi = parseInt(prompt('Informe o multiplicador.'));
+filtro = parseInt(prompt('Informe o filtro.'));
+
 function processBets() {
     const betElements = document.getElementsByClassName('bet');
     const serverTime = new Date(); // Get current server time
