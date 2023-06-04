@@ -1,8 +1,7 @@
-const betArray = [['Bet','Pag','Multiplicador', 'Retorno Calculado']];
+const betArray = [['Bet', 'Pag', 'Multiplicador', 'Retorno Calculado']];
 let multi = 999, settime = 1500, filtro = 9999, betPlace = 0.1;
 
-multi = parseInt(prompt('Informe o multiplicador.'));
-filtro = parseInt(prompt('Informe o filtro.'));
+parametro();
 
 function processBets() {
     const betElements = document.getElementsByClassName('bet');
@@ -18,7 +17,7 @@ function processBets() {
 
             if (betAmount > multi && !betArray.some(item => item[1] === betAmount)) {
                 betElement.style.backgroundColor = 'red';
-                betArray.push([i, page, betAmount, 'R$ '+(betAmount * betPlace).toFixed(2)]);
+                betArray.push([i, page, betAmount, 'R$ ' + (betAmount * betPlace).toFixed(2)]);
                 //betArray.push([page, betAmount, serverTime]); // Add page, betAmount, and serverTime to the array
             }
         }
@@ -36,3 +35,22 @@ function processBets() {
 }
 
 setInterval(processBets, settime);
+
+function parametro() {
+    multi = parseInt(prompt('Informe o multiplicador.'));
+    filtro = parseInt(prompt('Informe o filtro.'));
+    settime = parseInt(prompt('Velocidade paginação(1 - Rápida | 2 - Normal | 3 - Lenta).'));
+    switch (settime) {
+        case 1:
+            settime = 1200;
+            break;
+        case 2:
+            settime = 2000;
+            break;
+        case 3:
+            settime = 5000;
+            break;
+        default:
+            break;
+    }
+}
