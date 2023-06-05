@@ -1,4 +1,4 @@
-const betArray = [['Bet', 'Pag', 'Multiplicador', 'Retorno Calculado']];
+let betArray = [['Bet', 'Pag', 'Multiplicador', 'Retorno Calculado']];
 let multi = 999, settime = 1500, filtro = 9999, betPlace = 0.1;
 
 parametro();
