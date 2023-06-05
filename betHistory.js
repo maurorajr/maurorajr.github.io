@@ -5,12 +5,12 @@ parametro();
 
 function processBets() {
     const betElements = document.getElementsByClassName('bet');
-    const betTimes = document.querySelectorAll('#history .bet p');
+    const betTimes = document.querySelectorAll('#history .bet');
     const serverTime = new Date(); // Get current server time
 
     for (let i = 0; i < betElements.length; i++) {
         const betElement = betElements[i];
-        const betTime = betTimes[i].textContext;
+        const betTime = betTimes[i].querySelector('p').textContent;
         const betAmountElement = betElement.querySelector('.bet-amount');
         const page = document.getElementsByClassName('pagination-custom')[0].textContent.replace('Página ', '').replace(' de 339', '');
 
