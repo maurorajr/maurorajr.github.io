@@ -5,12 +5,10 @@ parametro();
 
 function processBets() {
     const betElements = document.getElementsByClassName('bet');
-    const betTimes = document.querySelectorAll('#history .bet');
     const serverTime = new Date(); // Get current server time
 
     for (let i = 0; i < betElements.length; i++) {
         const betElement = betElements[i];
-        const betTime = betTimes[i].querySelector('p').textContent;
         const betAmountElement = betElement.querySelector('.bet-amount');
         const page = document.getElementsByClassName('pagination-custom')[0].textContent.replace('Página ', '').replace(' de 339', '');
 
@@ -19,7 +17,7 @@ function processBets() {
 
             if (betAmount > multi && !betArray.some(item => item[1] === betAmount)) {
                 betElement.style.backgroundColor = 'red';
-                betArray.push([i, page, betAmount, 'R$ ' + (betAmount * betPlace).toFixed(2), betTime]);
+                betArray.push([i, page, betAmount, 'R$ ' + (betAmount * betPlace).toFixed(2)]);
                 //betArray.push([page, betAmount, serverTime]); // Add page, betAmount, and serverTime to the array
             }
         }
