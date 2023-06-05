@@ -1,4 +1,4 @@
-let betArray = [['Bet', 'Pag', 'Multiplicador', 'Retorno Calculado']];
+const betArray = [['Bet', 'Pag', 'Multiplicador', 'Retorno Calculado']];
 let multi = 999, settime = 1500, filtro = 9999, betPlace = 0.1;
 
 parametro();
@@ -39,7 +39,6 @@ function processBets() {
 setInterval(processBets, settime);
 
 function parametro() {
-    betArray = [['Bet', 'Pag', 'Multiplicador', 'Retorno Calculado', 'Data']];
     multi = parseInt(prompt('Informe o multiplicador.'));
     filtro = parseInt(prompt('Informe o filtro.'));
     settime = parseInt(prompt('Velocidade paginação(1 - Rápida | 2 - Normal | 3 - Lenta).'));
