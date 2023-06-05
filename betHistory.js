@@ -5,10 +5,12 @@ parametro();
 
 function processBets() {
     const betElements = document.getElementsByClassName('bet');
+    const betTimes = document.querySelectorAll('#history .bet p');
     const serverTime = new Date(); // Get current server time
 
     for (let i = 0; i < betElements.length; i++) {
         const betElement = betElements[i];
+        const betTime = betTimes[i].textContext;
         const betAmountElement = betElement.querySelector('.bet-amount');
         const page = document.getElementsByClassName('pagination-custom')[0].textContent.replace('Página ', '').replace(' de 339', '');
 
@@ -17,7 +19,7 @@ function processBets() {
 
             if (betAmount > multi && !betArray.some(item => item[1] === betAmount)) {
                 betElement.style.backgroundColor = 'red';
-                betArray.push([i, page, betAmount, 'R$ ' + (betAmount * betPlace).toFixed(2)]);
+                betArray.push([i, page, betAmount, 'R$ ' + (betAmount * betPlace).toFixed(2), betTime]);
                 //betArray.push([page, betAmount, serverTime]); // Add page, betAmount, and serverTime to the array
             }
         }
@@ -37,6 +39,7 @@ function processBets() {
 setInterval(processBets, settime);
 
 function parametro() {
+    betArray = [['Bet', 'Pag', 'Multiplicador', 'Retorno Calculado', 'Data']];
     multi = parseInt(prompt('Informe o multiplicador.'));
     filtro = parseInt(prompt('Informe o filtro.'));
     settime = parseInt(prompt('Velocidade paginação(1 - Rápida | 2 - Normal | 3 - Lenta).'));
