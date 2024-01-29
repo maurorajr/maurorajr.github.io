@@ -8,7 +8,7 @@ function colorirValoresAcimaDeLimite() {
     var betAmount = parseFloat(betAmounts[i].textContent.replace(',', '.'));
 
     if (betAmount > valorLimite) {
-      betAmounts[i].style.backgroundColor = 'red';
+      betAmounts[i].style.backgroundColor = 'green';
     }
   }
 }
