@@ -1,57 +1,67 @@
-// Valida qual jogo atual
+// Variáveis globais
 let gamePath = document.location.pathname;
 let bttBody = document.querySelector('.body');
-let modalCloseButton
+let modalCloseButton;
+let bttOnOff = '0';
+var script = document.createElement('script');
+let bttON, bttOFF;
 
-switch (gamePath) {
-    // Adicione casos para diferentes caminhos de jogo, se necessário
-    case '/pt/games/fortune-double/1':
-        alert('Fortune');
-        closeRules();
-        break;
-    case '/pt/games/double':
-        alert('DoubleKill');
-        break;
-    case '/pt/games/crash':
-        alert('Crash');
-        break;
-    // Caso padrão
-    default:
-        console.log('Caminho do jogo desconhecido');
+// Função para selecionar o jogo
+function selectGame() {
+    switch (gamePath) {
+        case '/pt/games/fortune-double/1':
+            alert('Fortune');
+            closeRules();
+            break;
+        case '/pt/games/double':
+            alert('DoubleKill');
+            break;
+        case '/pt/games/crash':
+            bttGenerate();
+            //script.src = 'https://maurorajr.github.io/crashBet.js';
+            //document.head.appendChild(script);
+            break;
+        default:
+            console.log('Caminho do jogo desconhecido');
+    }
 }
 
+// Função para gerar botões
 function bttGenerate() {
-    let bttON = document.createElement("button");
-    bttON.innerHTML = 'Iniciar';
-    bttON.addEventListener("click", function() {
-        alert("Iniciou");
+    bttON = createButton('Iniciar', 'green', 'white', '10px', function() {
+        alert('Iniciou');
+        bttON.disabled = true;
+        bttOFF.disabled = false;
     });
-    // Estilos para destacar o botão 'Iniciar'
-    bttON.style.backgroundColor = 'green';
-    bttON.style.color = 'white';
-    bttON.style.marginBottom = '10px'; // Adiciona espaçamento vertical
     bttBody.appendChild(bttON);
 
-    let bttOFF = document.createElement("button");
-    bttOFF.innerHTML = 'Parar';
-    bttOFF.addEventListener("click", function() {
-        alert("Parou");
+    bttOFF = createButton('Parar', 'red', 'white', '10px', function() {
+        alert('Parou');
+        bttOFF.disabled = true;
+        bttON.disabled = false;
     });
-    // Estilos para destacar o botão 'Parar'
-    bttOFF.style.backgroundColor = 'red';
-    bttOFF.style.color = 'white';
-    bttOFF.style.marginTop = '10px'; // Adiciona espaçamento vertical
+    bttOFF.disabled = true; // Inicia o botão "Parar" como desativado
     bttBody.appendChild(bttOFF);
 }
 
-//Fecha Janela de Regras
+// Função para fechar a janela de regras
 function closeRules() {
-    // Localize o elemento pelo ID
     modalCloseButton = document.getElementById('parent-modal-close');
-
-    // Verifique se o elemento existe antes de clicar
     if (modalCloseButton) {
-        // Simule um clique no botão para fechar a janela modal
         modalCloseButton.click();
     }
-};
+}
+
+// Função auxiliar para criar botões
+function createButton(text, bgColor, textColor, margin, clickHandler) {
+    let button = document.createElement('button');
+    button.innerHTML = text;
+    button.style.backgroundColor = bgColor;
+    button.style.color = textColor;
+    button.style.margin = margin;
+    button.addEventListener('click', clickHandler);
+    return button;
+}
+
+// Chamada da função principal
+selectGame();
