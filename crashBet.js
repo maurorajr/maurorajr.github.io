@@ -3,6 +3,7 @@ const bPlaceBet = document.querySelector(".place-bet button");
 const aBets = [['Id', 'Status', 'Bet', 'Return', 'LogTime']];
 
 function startBet() {
+    if (bttOnOff == '1'){
     tBet = bPlaceBet.innerText.trim();
     tName = document.querySelector("table .entry .user").innerText.replace('R$ ', '').trim();
     nBetP = document.querySelector("table .entry .bet").innerText.replace('R$ ', '').trim();
@@ -29,6 +30,7 @@ function startBet() {
     }
 
     cleanAll();
+}
 }
 setInterval(startBet, 1200);
 
