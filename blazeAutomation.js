@@ -10,11 +10,11 @@ let bttON, bttOFF;
 function selectGame() {
     switch (gamePath) {
         case '/pt/games/fortune-double/1':
-            alert('Fortune');
             closeRules();
+            bttGenerate();            
             break;
         case '/pt/games/double':
-            alert('DoubleKill');
+            bttGenerate();
             break;
         case '/pt/games/crash':
             bttGenerate();
@@ -29,14 +29,16 @@ function selectGame() {
 // Função para gerar botões
 function bttGenerate() {
     bttON = createButton('Iniciar', 'green', 'white', '10px', function() {
-        alert('Iniciou');
+        //alert('Iniciou');
+        bttOnOff = '1'
         bttON.disabled = true;
         bttOFF.disabled = false;
     });
     bttBody.appendChild(bttON);
 
     bttOFF = createButton('Parar', 'red', 'white', '10px', function() {
-        alert('Parou');
+        //alert('Parou');
+        bttOnOff = '0'
         bttOFF.disabled = true;
         bttON.disabled = false;
     });
