@@ -28,7 +28,7 @@ function selectGame() {
 
 // Função para gerar botões
 function bttGenerate() {
-    bttON = createButton('Iniciar', 'green', 'white', '10px', function() {
+    bttON = createButton('Iniciar', 'green', 'white', '10px', 'startButton', function() {
         //alert('Iniciou');
         bttOnOff = '1'
         bttON.disabled = true;
@@ -36,7 +36,7 @@ function bttGenerate() {
     });
     bttBody.appendChild(bttON);
 
-    bttOFF = createButton('Parar', 'red', 'white', '10px', function() {
+    bttOFF = createButton('Parar', 'red', 'white', '10px', 'stopButton', function() {
         //alert('Parou');
         bttOnOff = '0'
         bttOFF.disabled = true;
@@ -55,12 +55,13 @@ function closeRules() {
 }
 
 // Função auxiliar para criar botões
-function createButton(text, bgColor, textColor, margin, clickHandler) {
+function createButton(text, bgColor, textColor, margin, additionalClass, clickHandler) {
     let button = document.createElement('button');
     button.innerHTML = text;
     button.style.backgroundColor = bgColor;
     button.style.color = textColor;
     button.style.margin = margin;
+    button.classList.add(additionalClass); // Adiciona a classe adicional
     button.addEventListener('click', clickHandler);
     return button;
 }
