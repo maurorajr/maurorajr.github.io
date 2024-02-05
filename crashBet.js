@@ -1,7 +1,6 @@
-let tBet, nBet, tName, nValue, nVEle, nMin = 114, nMax = 400, nProfit = 0, nBetP = 0, id = 0;
+let tBet, nBet, tName, nValue, nVEle, nMin = 114, nMax = 400, nProfit = 0, nBetP = 0, id = 0, bttOnOff = '';
 const bPlaceBet = document.querySelector(".place-bet button");
 const aBets = [['Id', 'Status', 'Bet', 'Return', 'LogTime']];
-const bttOnOff
 
 function startBet() {
     bttOnOff = document.querySelector('.startButton').disabled
