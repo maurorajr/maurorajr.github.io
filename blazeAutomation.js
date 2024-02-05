@@ -2,7 +2,6 @@
 let gamePath = document.location.pathname;
 let bttBody = document.querySelector('.body');
 let modalCloseButton;
-let bttOnOff = '0';
 var script = document.createElement('script');
 let bttON, bttOFF;
 
@@ -30,7 +29,6 @@ function selectGame() {
 function bttGenerate() {
     bttON = createButton('Iniciar', 'green', 'white', '10px', 'startButton', function() {
         //alert('Iniciou');
-        bttOnOff = '1'
         bttON.disabled = true;
         bttOFF.disabled = false;
     });
@@ -38,7 +36,6 @@ function bttGenerate() {
 
     bttOFF = createButton('Parar', 'red', 'white', '10px', 'stopButton', function() {
         //alert('Parou');
-        bttOnOff = '0'
         bttOFF.disabled = true;
         bttON.disabled = false;
     });
