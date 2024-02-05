@@ -1,9 +1,10 @@
 let tBet, nBet, tName, nValue, nVEle, nMin = 114, nMax = 400, nProfit = 0, nBetP = 0, id = 0;
 const bPlaceBet = document.querySelector(".place-bet button");
 const aBets = [['Id', 'Status', 'Bet', 'Return', 'LogTime']];
-const bttOnOff = document.querySelector('.startButton').disabled
+const bttOnOff
 
 function startBet() {
+    bttOnOff = document.querySelector('.startButton').disabled
     if (bttOnOff){
     tBet = bPlaceBet.innerText.trim();
     tName = document.querySelector("table .entry .user").innerText.replace('R$ ', '').trim();
