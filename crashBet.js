@@ -1,4 +1,8 @@
-let tBet, nBet, tName, nValue, nVEle, nProfit = 0, nBetP = 0, id = 0, bttOnOff = '';
+let tBet, nBet, tName, nValue, nVEle, nMin = 114, nMax = 400, nProfit = 0, nBetP = 0, id = 0, bttOnOff = '';
+const bPlaceBet = document.querySelector(".place-bet button");
+const aBets = [['Id', 'Status', 'Bet', 'Return', 'LogTime']];
+
+let tBet, nBet, tName, nValue, nVEle,  nProfit = 0, nBetP = 0, id = 0;
 const bPlaceBet = document.querySelector(".place-bet button");
 const aBets = [['Id', 'Status', 'Bet', 'Return', 'LogTime']];
 
