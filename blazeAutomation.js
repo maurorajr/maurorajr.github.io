@@ -17,8 +17,8 @@ function selectGame() {
             break;
         case '/pt/games/crash':
             bttGenerate();
-            //script.src = 'https://maurorajr.github.io/crashBet.js';
-            //document.head.appendChild(script);
+            script.src = 'https://maurorajr.github.io/crashBet.js';
+            document.head.appendChild(script);
             break;
         default:
             console.log('Caminho do jogo desconhecido');
