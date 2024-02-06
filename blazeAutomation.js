@@ -10,12 +10,15 @@ function selectGame() {
     switch (gamePath) {
         case '/pt/games/fortune-double/1':
             closeRules();
+            topControl();
             bttGenerate();            
             break;
         case '/pt/games/double':
+            topControl();
             bttGenerate();
             break;
         case '/pt/games/crash':
+            topControl();
             bttGenerate();
             script.src = 'https://maurorajr.github.io/crashBet.js';
             document.head.appendChild(script);
