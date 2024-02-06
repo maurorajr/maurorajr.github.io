@@ -1,10 +1,8 @@
-let tBet, nBet, tName, nValue, nVEle, nMin = 114, nMax = 400, nProfit = 0, nBetP = 0, id = 0, bttOnOff = '';
+let tBet, nBet, tName, nValue, nVEle, nMin = 2, nMax = 5, nProfit = 0, nBetP = 0, id = 0, bttOnOff = '';
 const bPlaceBet = document.querySelector(".place-bet button");
-const aBets = [['Id', 'Status', 'Bet', 'Return', 'LogTime']];
+//const aBets = [['Id', 'Status', 'Bet', 'Return', 'LogTime']];
 
-let tBet, nBet, tName, nValue, nVEle,  nProfit = 0, nBetP = 0, id = 0;
-const bPlaceBet = document.querySelector(".place-bet button");
-const aBets = [['Id', 'Status', 'Bet', 'Return', 'LogTime']];
+minMaxGen();
 
 function startBet() {
     bttOnOff = document.querySelector('.startButton').disabled;
@@ -15,6 +13,8 @@ function startBet() {
         nBetP = document.querySelector("table .entry .bet").innerText.replace('R$ ', '').trim();
         nProfit = document.querySelector("table .entry .profit").innerText.replace('R$ ', '').trim();
         nVEle = document.querySelector(".input-field");
+        nMin = parseFloat(document.querySelector('.inputMin').value)
+        nMax = parseFloat(document.querySelector('.inputMax').value)
 
         if (nVEle.value && !isNaN(parseFloat(nVEle.value))) {
             nValue = parseFloat(nVEle.value);
@@ -25,11 +25,7 @@ function startBet() {
                 nBet = parseFloat(bPlaceBet.innerText.replace('Retirar ', '').replace(' BRL', '').trim());
 
                 if (!isNaN(nBet) && nBet / nValue >= nMin && nBet / nValue <= nMax) {
-                    bPlaceBet.click();
-
-                    if (!isNaN(nProfit)) {
-                        aBets.push([id++, 'Won', nBetP, nProfit, new Date().toLocaleString()]);
-                    }
+                    bPlaceBet.click();                    
                 }
             }
         }
@@ -43,4 +39,65 @@ setInterval(startBet, 1200);
 function cleanAll() {
     console.clear();
     console.table(aBets);
+}
+
+function minMaxGen() {
+    // Get the parent element to append the new elements
+    const regularBettingController = document.querySelector('.regular-betting-controller');
+    
+    // Create a div to contain the inputs and button
+    const containerDiv = document.createElement('div');
+    
+    // Create the first numeric input field
+    const numericInput1 = document.createElement('input');
+    numericInput1.type = 'number';
+    numericInput1.className = 'inputMin';
+    numericInput1.value = '2';
+    numericInput1.disabled = true; // Start disabled
+    
+    // Criar botão para subtrair -5
+    const subtractButton = document.createElement('button');
+    subtractButton.textContent = '-5';
+    subtractButton.addEventListener('click', function() {
+        const currentValue = parseFloat(numericInput1.value);
+        numericInput1.value = (currentValue - 5).toFixed(2);
+    });
+
+    // Criar botão para somar +5
+    const addButton = document.createElement('button');
+    addButton.textContent = '+5';
+    addButton.addEventListener('click', function() {
+        const currentValue = parseFloat(numericInput1.value);
+        numericInput1.value = (currentValue + 5).toFixed(2);
+    });
+
+    // Adicionar inputMin à div
+    containerDiv.appendChild(subtractButton);
+    containerDiv.appendChild(numericInput1);
+    containerDiv.appendChild(addButton);
+    
+    // Create the second numeric input field
+    const numericInput2 = document.createElement('input');
+    numericInput2.type = 'number';
+    numericInput2.className = 'inputMax';
+    numericInput2.value = '5';
+    numericInput2.disabled = true; // Start disabled
+
+    // Create the "Editar" button
+    const editarButton = document.createElement('button');
+    editarButton.className = 'editButton';
+    editarButton.textContent = 'Editar';
+    
+    // Append the inputs to the container div
+    containerDiv.appendChild(numericInput2);
+    
+    // Append the container div and the "Editar" button to the parent element
+    regularBettingController.appendChild(containerDiv);
+    regularBettingController.appendChild(editarButton);
+    
+    // Add event listener to the "Editar" button to enable editing
+    editarButton.addEventListener('click', function() {
+        numericInput1.disabled = !numericInput1.disabled;
+        numericInput2.disabled = !numericInput2.disabled;
+    });
 }
