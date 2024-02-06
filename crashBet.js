@@ -38,7 +38,6 @@ setInterval(startBet, 1200);
 
 function cleanAll() {
     console.clear();
-    console.table(aBets);
 }
 
 function minMaxGen() {
