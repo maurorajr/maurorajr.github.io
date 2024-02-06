@@ -63,5 +63,39 @@ function createButton(text, bgColor, textColor, margin, additionalClass, clickHa
     return button;
 }
 
+function topControl() {
+    // Get the parent element to append the new elements
+const regularBettingController = document.querySelector('.scrollable');
+
+// Create a div to contain the inputs and button
+const containerDiv = document.createElement('div');
+
+// Create a label for the numeric input
+const label = document.createElement('label');
+label.textContent = 'Valor:';
+
+// Create the first numeric input field
+const numericInput1 = document.createElement('input');
+numericInput1.type = 'number';
+numericInput1.color = 'white';
+numericInput1.className = 'inputMin';
+numericInput1.value = 'XXX';
+numericInput1.disabled = true; // Start disabled    
+
+// Set the 'for' attribute of the label to match the input's id
+const inputId = 'numericInput1'; // You can use any unique identifier
+label.setAttribute('for', inputId);
+
+// Adicionar label e inputMin à div
+containerDiv.appendChild(label);
+containerDiv.appendChild(numericInput1);
+
+// Append the container div and the "Editar" button to the parent element
+regularBettingController.appendChild(containerDiv);
+regularBettingController.insertAdjacentElement('afterbegin', numericInput1);
+regularBettingController.insertAdjacentElement('afterbegin', label);
+
+}
+
 // Chamada da função principal
 selectGame();
