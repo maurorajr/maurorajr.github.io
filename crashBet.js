@@ -1,4 +1,4 @@
-let tBet, nBet, tName, nValue, nVEle, nMin = 2, nMax = 50000, nProfit = 0, nBetP = 0, id = 0, bttOnOff = '';
+let tBet, nBet, tName, nValue, nVEle, nMin = 2, nMax = 50000, nProfit = 0, nBetP = 0, id = 0, bttOnOff = '', betInpOff;
 const bPlaceBet = document.querySelector(".place-bet button");
 //const aBets = [['Id', 'Status', 'Bet', 'Return', 'LogTime']];
 
@@ -6,6 +6,8 @@ minMaxGen();
 
 function startBet() {
     bttOnOff = document.querySelector('.startButton').disabled;
+    betInpOff = document.querySelector('.input-field-wrapper .input-field')
+    betInpOff.disable = false
 
     if (bttOnOff) {
         tBet = bPlaceBet.innerText.trim();
@@ -29,7 +31,6 @@ function startBet() {
                 }
             }
         }
-
         cleanAll();
     }
 }
