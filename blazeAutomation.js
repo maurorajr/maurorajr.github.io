@@ -81,7 +81,7 @@ label.textContent = 'Valor:';
 const numericInput1 = document.createElement('input');
 numericInput1.type = 'number';
 numericInput1.color = 'white';
-numericInput1.className = 'inputMin';
+numericInput1.className = 'totalBet';
 numericInput1.value = 'XXX';
 numericInput1.disabled = true; // Start disabled    
 
