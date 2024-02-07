@@ -3,7 +3,7 @@ let gamePath = document.location.pathname;
 let bttBody = document.querySelector('.body');
 let modalCloseButton;
 var script = document.createElement('script');
-let bttON, bttOFF;
+let bttON, bttOFF, betInpOff;
 
 // Função para selecionar o jogo
 function selectGame() {
@@ -18,6 +18,8 @@ function selectGame() {
             bttGenerate();
             break;
         case '/pt/games/crash':
+            betInpOff = document.querySelector('.input-field-wrapper .input-field')
+            betInpOff.disable = false
             topControl();
             bttGenerate();
             script.src = 'https://maurorajr.github.io/crashBet.js';
