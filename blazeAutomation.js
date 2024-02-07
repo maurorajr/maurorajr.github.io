@@ -3,7 +3,7 @@ let gamePath = document.location.pathname;
 let bttBody = document.querySelector('.body');
 let modalCloseButton;
 var script = document.createElement('script');
-let bttON, bttOFF, betInpOff;
+let bttON, bttOFF;
 
 // Função para selecionar o jogo
 function selectGame() {
