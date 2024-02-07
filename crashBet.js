@@ -1,4 +1,4 @@
-let tBet, nBet, tName, nValue, nVEle, nMin = 2, nMax = 5, nProfit = 0, nBetP = 0, id = 0, bttOnOff = '';
+let tBet, nBet, tName, nValue, nVEle, nMin = 2, nMax = 50000, nProfit = 0, nBetP = 0, id = 0, bttOnOff = '';
 const bPlaceBet = document.querySelector(".place-bet button");
 //const aBets = [['Id', 'Status', 'Bet', 'Return', 'LogTime']];
 
@@ -79,7 +79,7 @@ function minMaxGen() {
     const numericInput2 = document.createElement('input');
     numericInput2.type = 'number';
     numericInput2.className = 'inputMax';
-    numericInput2.value = '5';
+    numericInput2.value = '50000';
     numericInput2.disabled = true; // Start disabled
 
     // Create the "Editar" button
