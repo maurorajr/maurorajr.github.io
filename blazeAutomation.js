@@ -17,9 +17,7 @@ function selectGame() {
             topControl();
             bttGenerate();
             break;
-        case '/pt/games/crash':
-            betInpOff = document.querySelector('.input-field-wrapper .input-field')
-            betInpOff.disable = false
+        case '/pt/games/crash':            
             topControl();
             bttGenerate();
             script.src = 'https://maurorajr.github.io/crashBet.js';
